@@ -21,3 +21,5 @@ branches:
     
 deploy:
   provider: azure_web_apps
+  on:
+   node: '12'
