@@ -21,5 +21,6 @@ branches:
     
 deploy:
   provider: azure_web_apps
+  skip_cleanup: true
   on:
    node: '12'
