@@ -1,7 +1,6 @@
 sudo: false
 language: node_js
 
-
 node_js:
   - "10"
   - "11"
@@ -23,5 +22,6 @@ branches:
 deploy:
   provider: azure_web_apps
   skip_cleanup: true
+  verbose: true
   on:
    node: '12'
