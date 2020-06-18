@@ -22,6 +22,6 @@ deploy:
   provider: azure_web_apps
   cleanup: false
   verbose: true
-  edge: true
+#  edge: true
   on:
    node_js: '12'
