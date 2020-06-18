@@ -1,4 +1,3 @@
-sudo: false
 language: node_js
 
 node_js:
@@ -18,3 +17,11 @@ script: npm run test
 branches:
   only:
     - master
+    
+deploy:
+  provider: azure_web_apps
+  cleanup: false
+  verbose: true
+#  edge: true
+  on:
+   node_js: '12'
