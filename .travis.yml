@@ -20,7 +20,8 @@ branches:
     
 deploy:
   provider: azure_web_apps
-  skip_cleanup: true
+  cleanup: false
   verbose: true
+  edge: true
   on:
    node_js: '12'
