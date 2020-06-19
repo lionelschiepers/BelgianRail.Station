@@ -1,0 +1,138 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "BelgianRail-Station",
+        "version": "1.0.0",
+        "description": "Station RESTful API definition",
+        "contact": {
+            "name": "Lionel Schiepers",
+            "email": "lionel.schiepers@belgiantrain.be"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://belgianrail-station.azurewebsites.net",
+            "description": "Station web site"
+        }
+    ],
+    "paths": {
+        "/Station": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Station"
+                                },
+                                "examples": {
+                                    "ex1": {
+                                        "value": [
+                                            {
+                                                "NameFr": "Liège",
+                                                "NameNl": "Luik",
+                                                "NameDe": "Liège",
+                                                "NameEn": "Liège",
+                                                "StationId": 1
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Get all stations"
+                    }
+                },
+                "operationId": "GetStations"
+            }
+        },
+        "/Station/{StationId}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Station"
+                                },
+                                "examples": {
+                                    "ex1": {
+                                        "value": {
+                                            "NameFr": "Liège",
+                                            "NameNl": "Luik",
+                                            "NameDe": "Liège",
+                                            "NameEn": "Liège",
+                                            "StationId": 1
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Station details"
+                    }
+                },
+                "operationId": "GetStation",
+                "summary": "Get the details about a station"
+            },
+            "parameters": [
+                {
+                    "name": "StationId",
+                    "description": "Station identifier",
+                    "schema": {
+                        "type": "integer"
+                    },
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        }
+    },
+    "components": {
+        "schemas": {
+            "Station": {
+                "description": "Details about a station",
+                "required": [
+                    "StationId",
+                    "NameFr",
+                    "NameNl",
+                    "NameEn",
+                    "NameDe"
+                ],
+                "type": "object",
+                "properties": {
+                    "NameFr": {
+                        "description": "Station name in french",
+                        "type": "string"
+                    },
+                    "NameNl": {
+                        "description": "Station name in dutch",
+                        "type": "string"
+                    },
+                    "NameDe": {
+                        "description": "Station name in german",
+                        "type": "string"
+                    },
+                    "NameEn": {
+                        "description": "Station name in english",
+                        "type": "string"
+                    },
+                    "StationId": {
+                        "description": "Station identifier",
+                        "type": "integer"
+                    }
+                },
+                "example": {
+                    "NameFr": "Liège",
+                    "NameNl": "Luik",
+                    "NameDe": "Liège",
+                    "NameEn": "Liège",
+                    "StationId": 1
+                }
+            }
+        }
+    }
+}

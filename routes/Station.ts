@@ -6,35 +6,46 @@ const router = express.Router();
 
 const data = [
     {
-        StationId: 'Los Angeles',
-        Name: 'Los Angeles',
-        Country: 'USA'
-  
+        StationId: 1,
+        NameFr: 'Liège',
+        NameNl: 'Luik',
+        NameEn: 'Liège',
+        NameDe: 'Liège'
     },
     {
-        StationId: 'Madrid',
-        Name: 'Madrid',
-        Country: 'Spain'
+        StationId: 2,
+        NameFr: 'Anvers',
+        NameNl: 'Antwerpen',
+        NameEn: 'Antwerpen',
+        NameDe: 'Antwerpen'
     },
     {
-        StationId: 'Gotham',
-        Name: 'Gotham City',
-        Country: 'USA'
+        StationId: 3,
+        NameFr: 'Paris',
+        NameNl: 'Parijs',
+        NameEn: 'Paris',
+        NameDe: 'Paris'
     },
     {
-        StationId: 'DarkWeb',
-        Name: 'Dark Web',
-        Country: 'Dark Earth'
+        StationId: 4,
+        NameFr: 'Madrid',
+        NameNl: 'Madrid',
+        NameEn: 'Madrid',
+        NameDe: 'Madrid'
     },
     {
-        StationId: 'Earth',
-        Name: 'Earth',
-        Country: 'Earth'
+        StationId: 5,
+        NameFr: 'Amsterdam',
+        NameNl: 'Amsterdam',
+        NameEn: 'Amsterdam',
+        NameDe: 'Amsterdam'
     },
     {
-        StationId: 'Moon',
-        Name: 'Moon',
-        Country: 'Moon'
+        StationId: 6,
+        NameFr: 'Lille',
+        NameNl: 'Rijsel',
+        NameEn: 'Lille',
+        NameDe: 'Lille'
     }
 ]
 
@@ -45,9 +56,7 @@ router.get('/', (req: express.Request, res: express.Response) => {
 router.get('/:id', (req: express.Request, res: express.Response) => {
     let station = data.find(ele => ele.StationId.toString() === req.params.id);
     if (!station) {
-        const err = new Error('Not Found');
-        err['status'] = 404;
-        res.status(404).send(`Journey ${req.params.id} not found`);
+        res.status(404).send(`Station ${req.params.id} not found`);
         return;
     }
 
