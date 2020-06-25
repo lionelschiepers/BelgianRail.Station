@@ -7,10 +7,10 @@ const router = express.Router();
 const data = [
     {
         StationId: 1,
-        NameFr: 'Liège',
+        NameFr: 'Liege',
         NameNl: 'Luik',
-        NameEn: 'Liège',
-        NameDe: 'Liège'
+        NameEn: 'Liege',
+        NameDe: 'Liege'
     },
     {
         StationId: 2,
